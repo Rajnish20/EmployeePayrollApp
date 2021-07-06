@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee Payroll Form</title>
     <link href="../css/EmployeePayrollCSS.css" rel = "Stylesheet">
+    <script src="../Javascript/EmployeeForm.js"></script>
+    <script src="../Javascript/EmployeePayrollData.js"></script>
 </head>
 <body>
     <header class="header-content">
@@ -18,11 +20,12 @@
         </div>
     </header>
     <div class="form-content">
-        <form class="form" action="#" onsubmit="save();return false">
+        <form class="form" action="#" onsubmit="save()" onreset="resetForm()">
             <div class="form-header">Employee Payroll Form</div>
             <div class="row-content">
                 <label class="label text" for="name">Name</label>
                 <input class="input" type="text" id="name" name="name" placeholder="Enter Your Name" required>
+                <error-output class="text-error" for="text"></error-output>
             </div>
             <div class="row-content">
                 <label class="label text" for="Profile">Profile image</label>
@@ -84,7 +87,7 @@
             </div>
             <div class="row-content">
                 <label class="label text" for="startDate">Start Date</label>
-                <div>
+                <div id="date">
                     <select id="day" name="Day">
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -138,7 +141,7 @@
                         <option value="2019">2019</option>
                     </select>
                 </div>
-
+                <error-output class="date-error" for="startDate"></error-output>
             </div>
             <div class="row-content">
                 <label class="label text" for="notes">Notes</label>
@@ -147,12 +150,11 @@
             <div class="button-content">
                 <a href="./home.html" class="resetButton button cancelButton">Cancel</a>
                 <div class="submit-reset">
-                    <button type="submit" class="button submitButton" id="submitButton">Submit</button>
+                    <button onclick="submitFunction()" type="submit" class="button submitButton" id="submitButton">Submit</button>
                     <button type="reset" class="resetButton button">Reset</button>
                 </div>
             </div>
         </form>
     </div>
 </body>
-<script src="../Javascript/EmployeePayroll.js"></script>
 </html>
