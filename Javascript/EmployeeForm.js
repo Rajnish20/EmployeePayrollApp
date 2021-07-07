@@ -9,6 +9,11 @@ window.addEventListener('DOMContentLoaded',(event) => {
         }catch(e){
             textError.textContent = e;
         }
+        if(textError.textContent != ""){
+            disableBtn();
+        }else{
+            enableBtn();
+        }
     });
 
     const salary = document.querySelector('#salary');
@@ -28,8 +33,21 @@ window.addEventListener('DOMContentLoaded',(event) => {
     }catch(e){
         dateError.textContent = e;
     }
+    if(textError.textContent != ""){
+        disableBtn();
+    }else{
+        enableBtn();
+    }
 });
 });
+
+function disableBtn() {
+    document.getElementById("submitButton").disabled = true;
+}
+function enableBtn() {
+    document.getElementById("submitButton").disabled = false;
+}
+
 
 const save = () => {
     try{
