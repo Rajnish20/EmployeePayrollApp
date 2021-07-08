@@ -60,6 +60,7 @@ const save = () => {
 
 const createEmployeePayroll = () => {
     let employeePayrollData = new EmployeePayrollData();
+    employeePayrollData.id = getEmpId().length + 1;
     employeePayrollData.name = getInputValueById('#name');
     employeePayrollData.profilePic = getSelectedValues('[name=profile]').pop();
     employeePayrollData.gender = getSelectedValues('[name=gender]').pop();
@@ -83,6 +84,11 @@ const getSelectedValues = (propertyValue) => {
     return selItem;
 }
 
+const getEmpId = () => {
+    return localStorage.getItem('EmployeePayrollList') ?
+                        JSON.parse(localStorage.getItem('EmployeePayrollList')) : [];
+    
+}
 
 const getInputValueById = (id) => {
     let value = document.querySelector(id).value;
